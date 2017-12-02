@@ -18,7 +18,7 @@
 ; s4 - id     : An intermediate variable storing value of (x^n / n!).
 ; s5 - inc    : The counter increament. VADD operates only on FPU registers.
 
-__main
+__main			FUNCTION
 			VMOV.F32 s0, #1.0 
 			VMOV.F32 s5, #1.0 				  
 			VMOV.F32 s1, #5.0 
@@ -38,5 +38,6 @@ loop			VADD.F32 s3, s3, s4 		; result = result + id
 stop			B	 stop			; else stop. 
 
 ; Code ends here,
+			ENDFUNC
 			END							
 			
