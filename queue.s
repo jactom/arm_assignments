@@ -27,7 +27,7 @@ LENGTH			EQU QUEUE_END - QUEUE_START ; It is the size limit of queue
 ; in register r3 or untill the queue is full. Queue length is updated in register
 ; r2
 
-enq
+enq		FUNCTION
 go		CMP r2, #LENGTH ; Chech wheather queue is full
 		BNE go0
 		BX lr
@@ -47,13 +47,14 @@ go1		ADD r4, r4, #1
 		B go
 go2 	ADD r1, r1, #4
 		B go
+		ENDFUNC
 
 
 ; This is the dqueue function. It pops from the queue number of elements defined
 ; in register r3 or untill the queue is full. Queue length is updated in register
 ; r2. The poped value can be found in register r4
 
-deq
+deq		FUNCTION
 do		CMP r2, #0 			; Chech wheather queue is empty
 		BNE do0
 		BX lr
@@ -72,6 +73,7 @@ do1 	LDR r4, [r0] 		; Read from the queue head to r4 and Dequeue
 		B do
 do2 	ADD r0, r0, #4
 		B do
+		ENDFUNC
 
 
 __main		FUNCTION
