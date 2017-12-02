@@ -9,8 +9,9 @@
 ; is stored in register r2. If number is odd, the content in r2 is #1. 
 ; Otherwise it is zero
 
-__main
+__main		FUNCTION
 		MOV r1, #46
 		AND r2, r1, #1
-stop 	B stop
+stop 		B stop
+		ENDFUNC
 		END
