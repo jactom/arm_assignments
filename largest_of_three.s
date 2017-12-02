@@ -9,7 +9,7 @@
 		ENTRY
 		EXPORT __main
 
-__main
+__main		FUNCTION
 ; The numbers are loaded to registers r0, r1, r2
 		MOV r0, #0
 		MOV r1, #1
@@ -28,5 +28,6 @@ __main
 		MOVLT r4, r2
 ; Now r4 has the largest number. Store it to a memory location	
 		STR r4, [r3]
-stop	B stop
+stop		B stop
+		ENDFUNC
 		END
