@@ -84,6 +84,7 @@ __main
 		BL enq				 ; Add #r3 elements to the queue
 		MOV r3, #0x10
 		BL deq				 ; Dequeue #r3 elements from the queue
+stop		B	stop
 		END
 		
 		
