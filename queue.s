@@ -74,7 +74,7 @@ do2 	ADD r0, r0, #4
 		B do
 
 
-__main
+__main		FUNCTION
 		LDR r0, =QUEUE_START ; Initialize head address
 		LDR r1, =QUEUE_START ; Initialize tail address
 		LDR r8, =QUEUE_END	 ; Store the end of queue address space
@@ -85,6 +85,7 @@ __main
 		MOV r3, #0x10
 		BL deq				 ; Dequeue #r3 elements from the queue
 stop		B	stop
+		ENDFUNC
 		END
 		
 		
