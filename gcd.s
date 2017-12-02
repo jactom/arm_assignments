@@ -14,19 +14,20 @@ GCD_VAL	EQU	0x20000000
 ; is substracted from other. Now the same is applied on the results untill
 ; values are the same. This common value will be their gcd.
 
-__main
+__main		FUNCTION
 		MOV r1, #45 ; load first number.
 		MOV r2, #15 ; load the second number.
 		LDR r3, =GCD_VAL
 		B gcd		; jump to the gcd code.
-loop	CMP r1, r2 ; compare the two numbers
+loop		CMP r1, r2 ; compare the two numbers
 		ITE GT ; if r1 > r2
 		SUBGT r1, r1, r2 ; then r1 = r1 -r2
 		SUBLE r2, r2, r1 ; else r2 = r2 - r1		
 gcd		CMP r1, r2 ; Compare the two numbers
 		BNE loop   ; If not equal substract thsmallest from the largest
 		STR r1, [r3] ; store the gcd value to the memory location
-stop	B stop
+stop		B stop
+		ENDFUNC
 		END
 		
 		
